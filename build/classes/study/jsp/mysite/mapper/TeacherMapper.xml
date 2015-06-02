@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		
+<!-- 이 XML의 구조대로 구현될 클래스의 이름 => Impl클래스를 대체한다. -->
+<mapper namespace="TeacherMapper">
+	<!--  Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap type="Teacher" id="teacher">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="id" column="id" />
+		<result property="subject" column="subject"/>
+		<result property="univ" column="univ"/>
+		<result property="intro" column="intro"/>
+	</resultMap>
+	
+	  <!-- 회원가입을 처리한다.  -->
+	   <insert id="doJoin" parameterType="Teacher" keyProperty="id">
+	   		INSERT INTO teacher (
+	   			id, subject, univ, intro
+	   		) VALUES (
+	   			#{id}, #{subject}, #{univ}, #{intro}
+	   		);
+	   	</insert>
+</mapper>
