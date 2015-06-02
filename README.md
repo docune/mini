@@ -1,2 +1,0 @@
-# mini
-miniproject Excercise
